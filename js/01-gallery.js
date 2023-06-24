@@ -28,7 +28,7 @@ function createGalleryItems(images) {
 function onGalleryContainerClick(event) {
   event.preventDefault();
   const instance = basicLightbox.create(`
-    <img src=${event.target}>
+    <img src=${event.target.dataset.source}>
 `);
 
   instance.show();
