@@ -12,12 +12,12 @@ function createGalleryItems(images) {
     .map(({ preview, original, description }) => {
       return `
     <li class="gallery__item">
-  <a class="gallery__link" href=${original}>
+  <a class="gallery__link" href='${original}'>
     <img
       class="gallery__image"
-      src=${preview}
-      data-source=${original}
-      alt=${description}
+      src='${preview}'
+      data-source='${original}'
+      alt='${description}'
     />
   </a>
 </li>`;
@@ -27,13 +27,10 @@ function createGalleryItems(images) {
 
 function onGalleryContainerClick(event) {
   event.preventDefault();
-  const instance = basicLightbox.create(`
+  const instance = basicLightbox.create(
+    `
     <img src=${event.target.dataset.source}>
-`);
+`
+  );
   instance.show();
-  document.addEventListener("keydown", (event) => {
-    if (event.code === "Escape") {
-      instance.close();
-    }
-  });
 }
